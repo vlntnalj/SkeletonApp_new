@@ -1,0 +1,30 @@
+<ion-tabs>
+  <ion-router-outlet></ion-router-outlet>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home" [routerLink]="['/home']">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button [routerLink]="['/tab2']" routerLinkActive="tab-selected">
+      <ion-icon name="residentes"></ion-icon>
+      <ion-label>Residentes</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button [routerLink]="['/tab3']" routerLinkActive="tab-selected">
+      <ion-icon name="mantencion"></ion-icon>
+      <ion-label>Mantención</ion-label>
+    </ion-tab-button>
+
+     <ion-tab-button [routerLink]="['/tab3']" routerLinkActive="tab-selected">
+      <ion-icon name="pagos"></ion-icon>
+      <ion-label>Pagos</ion-label>
+    </ion-tab-button>
+
+     <ion-tab-button [routerLink]="['/tab3']" routerLinkActive="tab-selected">
+      <ion-icon name="personal"></ion-icon>
+      <ion-label>Personal</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
