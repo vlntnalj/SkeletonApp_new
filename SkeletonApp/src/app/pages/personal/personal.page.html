@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Gestión de Trabajadores</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- 🔹 Resumen de trabajadores -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Resumen General</ion-card-title>
+      <ion-card-subtitle>Estado actual del personal</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" class="ion-text-center">
+            <h2 class="text-success">{{ trabajadoresActivos }}</h2>
+            <p>Activos</p>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center">
+            <h2 class="text-warning">{{ trabajadoresLicencia }}</h2>
+            <p>En Licencia</p>
+          </ion-col>
+          <ion-col size="4" class="ion-text-center">
+            <h2 class="text-medium">{{ trabajadoresInactivos }}</h2>
+            <p>Inactivos</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- 🔹 Cargos -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Cargos del Personal</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-chip color="primary">Conserjería</ion-chip>
+      <ion-chip color="tertiary">Mantenimiento</ion-chip>
+      <ion-chip color="success">Limpieza</ion-chip>
+      <ion-chip color="warning">Administración</ion-chip>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- 🔹 Lista de trabajadores -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Listado de Trabajadores</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let trabajador of trabajadores">
+          <ion-avatar slot="start">
+            <img [src]="trabajador.foto" alt="Foto del trabajador" />
+          </ion-avatar>
+          <ion-label>
+            <h2>{{ trabajador.nombre }}</h2>
+            <p>{{ trabajador.cargo }} • {{ trabajador.horario }}</p>
+            <p>📞 {{ trabajador.telefono }}</p>
+          </ion-label>
+          <ion-badge [color]="trabajador.estadoColor">{{ trabajador.estado }}</ion-badge>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
