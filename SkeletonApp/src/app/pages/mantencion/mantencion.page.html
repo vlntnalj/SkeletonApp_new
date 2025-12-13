@@ -58,9 +58,11 @@
 
   <!-- 🧰 Botón flotante para nuevo reporte -->
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button class="fab-btn">
-      <ion-icon name="add-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  <ion-fab-button class="fab-btn" (click)="openNewReporteModal()">
+    <ion-icon name="add-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+
 
 </ion-content>

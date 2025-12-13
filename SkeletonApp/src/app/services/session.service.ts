@@ -6,31 +6,44 @@ import { Storage } from '@ionic/storage-angular';
   providedIn: 'root',
 })
 export class SessionService {
-  private _storage: Storage | null = null;
+  private storageReady: Promise<void>;
   private readonly KEY_USER = 'current_user';
 
   constructor(private storage: Storage) {
-    this.init();
+    // guardamos la promesa para esperar cuando sea necesario
+    this.storageReady = this.init();
   }
 
-  private async init() {
-    this._storage = await this.storage.create();
+  private async init(): Promise<void> {
+    await this.storage.create();
   }
 
-  async setCurrentUser(user: any) {
-    await this._storage?.set(this.KEY_USER, user);
+  /** Asegura que Storage esté listo */
+  private async ready() {
+    await this.storageReady;
   }
 
-  async getCurrentUser() {
-    return this._storage?.get(this.KEY_USER);
+  /** Guarda usuario en sesión */
+  async setCurrentUser(user: any): Promise<void> {
+    await this.ready();
+    await this.storage.set(this.KEY_USER, user);
   }
 
-  async clearSession() {
-    await this._storage?.remove(this.KEY_USER);
+  /** Obtiene usuario actual */
+  async getCurrentUser(): Promise<any | null> {
+    await this.ready();
+    return await this.storage.get(this.KEY_USER);
   }
 
+  /** Limpia sesión */
+  async clearSession(): Promise<void> {
+    await this.ready();
+    await this.storage.remove(this.KEY_USER);
+  }
+
+  /** Usado por el AuthGuard */
   async isLoggedIn(): Promise<boolean> {
-    const u = await this.getCurrentUser();
-    return !!u;
+    const user = await this.getCurrentUser();
+    return !!user;
   }
 }

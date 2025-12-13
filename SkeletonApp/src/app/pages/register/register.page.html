@@ -1,19 +1,27 @@
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="mytheme" class="toolbar-elevated">
     <ion-title>Registro de Usuario</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" class="icon-btn" (click)="goToLogin()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Crear nueva cuenta</ion-card-title>
-      <ion-card-subtitle>Complete todos los campos para continuar</ion-card-subtitle>
+<ion-content class="ion-padding register-content" color="mytheme-2">
+
+  <ion-card class="register-card">
+    <ion-card-header class="register-header">
+      <ion-card-title class="title">Crear nueva cuenta</ion-card-title>
+      <ion-card-subtitle class="subtitle">
+        Complete todos los campos para continuar
+      </ion-card-subtitle>
     </ion-card-header>
 
     <ion-card-content class="lottie-container">
       <lottie-player
-        src="assets/animations/food-animation.json"
+        src="assets/animations/building-home.json"
         background="transparent"
         speed="1"
         loop
@@ -23,60 +31,94 @@
     </ion-card-content>
 
     <ion-card-content>
-      <form [formGroup]="registerForm" (ngSubmit)="registrar()">
-        
-        <ion-item>
+      <form [formGroup]="registerForm" (ngSubmit)="registrar()" class="form">
+
+        <ion-item class="input-item" lines="none">
           <ion-label position="floating">Nombre completo</ion-label>
           <ion-input formControlName="nombre"></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item class="input-item" lines="none">
           <ion-label position="floating">Usuario</ion-label>
           <ion-input formControlName="usuario"></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item class="input-item" lines="none">
           <ion-label position="floating">Correo electrónico</ion-label>
           <ion-input type="email" formControlName="email"></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item class="input-item" lines="none">
           <ion-label position="floating">Teléfono</ion-label>
           <ion-input type="tel" formControlName="telefono"></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item class="input-item" lines="none">
           <ion-label>Fecha de nacimiento</ion-label>
-          <ion-datetime 
+          <ion-datetime
             formControlName="fechaNacimiento"
             presentation="date"
             preferWheel="false"
             [max]="maxFecha"
-            placeholder="Selecciona tu fecha">
+            class="date">
           </ion-datetime>
         </ion-item>
 
-        <ion-item>
+        <ion-item class="input-item" lines="none">
           <ion-label position="floating">Dirección</ion-label>
           <ion-input formControlName="direccion"></ion-input>
         </ion-item>
 
-        <ion-item>
+        <!-- Foto perfil -->
+         <ion-label position="floating">Foto de perfil</ion-label>
+        <!-- Foto perfil -->
+<div class="ion-text-center ion-margin-bottom">
+  <ion-avatar class="profile-avatar">
+    <img *ngIf="photoBase64; else placeholder" [src]="photoBase64" />
+    <ng-template #placeholder>
+      <img src="assets/icon/favicon.png" />
+    </ng-template>
+  </ion-avatar>
+
+  <ion-button class="ion-margin-top" type="button" fill="outline" (click)="tomarFoto()">
+    <ion-icon name="camera-outline" slot="start"></ion-icon>
+    Tomar foto
+  </ion-button>
+
+  <p class="hint" *ngIf="photoBase64">Vista previa lista. Se guardará al registrar.</p>
+</div>
+
+        <ion-item class="input-item" lines="none">
           <ion-label position="floating">Contraseña</ion-label>
           <ion-input type="password" formControlName="password"></ion-input>
         </ion-item>
 
-        <ion-item>
+        <ion-item class="input-item" lines="none">
           <ion-label position="floating">Confirmar contraseña</ion-label>
           <ion-input type="password" formControlName="confirmPassword"></ion-input>
         </ion-item>
 
-        <ion-button expand="block" type="submit" [disabled]="registerForm.invalid">Registrar</ion-button>
-      </form>
+        <ion-button
+          expand="block"
+          type="submit"
+          color="mytheme"
+          class="submit-btn"
+          [disabled]="registerForm.invalid">
+          Registrar
+        </ion-button>
 
-      <div class="ion-text-center ion-margin-top">
-        <ion-button fill="clear" color="medium" (click)="goToLogin()">Volver al Login</ion-button>
-      </div>
+        <ion-button
+          expand="block"
+          fill="clear"
+          color="mytheme-3"
+          class="back-btn"
+          type="button"
+          (click)="goToLogin()">
+          Volver al Login
+        </ion-button>
+
+      </form>
     </ion-card-content>
   </ion-card>
+
 </ion-content>

@@ -1,29 +1,29 @@
-<ion-tabs>
-  <!-- ELIMINA esto: <ion-router-outlet></ion-router-outlet> -->
-  
-  <ion-tab-bar slot="bottom" color="mytheme">
-    <ion-tab-button tab="home" [routerLink]="['/tabs','home']">
+<ion-tabs class="app-tabs">
+
+
+  <ion-tab-bar slot="bottom" color="mytheme" class="app-tabbar">
+    <ion-tab-button tab="home" [routerLink]="['/tabs','home']" class="app-tab">
       <ion-icon name="home-outline"></ion-icon>
       <ion-label>Inicio</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="departamentos" [routerLink]="['/tabs','departamentos']">
+    <ion-tab-button tab="departamentos" [routerLink]="['/tabs','departamentos']" class="app-tab">
       <ion-icon name="people-outline"></ion-icon>
       <ion-label>Residentes</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="mantencion" [routerLink]="['/tabs','mantencion']">
+    <ion-tab-button tab="mantencion" [routerLink]="['/tabs','mantencion']" class="app-tab">
       <ion-icon name="build-outline"></ion-icon>
       <ion-label>Mantención</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="pagos" [routerLink]="['/tabs','pagos']">
-      <ion-icon name="build-outline"></ion-icon>
+    <ion-tab-button tab="pagos" [routerLink]="['/tabs','pagos']" class="app-tab">
+      <ion-icon name="card-outline"></ion-icon>
       <ion-label>Pagos</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="personal" [routerLink]="['/tabs','personal']">
-      <ion-icon name="build-outline"></ion-icon>
+    <ion-tab-button tab="personal" [routerLink]="['/tabs','personal']" class="app-tab">
+      <ion-icon name="id-card-outline"></ion-icon>
       <ion-label>Personal</ion-label>
     </ion-tab-button>
   </ion-tab-bar>

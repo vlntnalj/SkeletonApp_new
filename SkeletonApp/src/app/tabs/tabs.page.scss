@@ -1,0 +1,84 @@
+/* Contenedor */
+.app-tabs {
+  --background: var(--ion-color-mytheme-2);
+}
+
+/* Barra */
+.app-tabbar {
+  height: calc(56px + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
+  border-top: 1px solid rgba(240, 240, 240, 0.08);
+
+  /* blur suave */
+  background: rgba(26, 26, 26, 0.92);
+  backdrop-filter: saturate(140%) blur(10px);
+
+  --color: rgba(240, 240, 240, 0.75);
+  --color-selected: var(--ion-color-mytheme-contrast);
+
+  /* evita que se “agrande” raro */
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Botones */
+.app-tab {
+  --padding-top: 6px;
+  --padding-bottom: 6px;
+  --ripple-color: rgba(240, 240, 240, 0.12);
+
+  min-width: 0; /* importante para cortar texto en pantallas angostas */
+}
+
+/* Iconos y label */
+.app-tab ion-icon {
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+
+.app-tab ion-label {
+  font-size: 11px;
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 72px;
+}
+
+/* Estado seleccionado: “pill” suave */
+.app-tab.tab-selected {
+  border-radius: 14px;
+  background: rgba(240, 240, 240, 0.08);
+}
+
+/* Pantallas muy chicas */
+@media (max-width: 360px) {
+  .app-tabbar {
+    height: calc(52px + env(safe-area-inset-bottom));
+  }
+
+  .app-tab ion-icon {
+    font-size: 20px;
+  }
+
+  .app-tab ion-label {
+    font-size: 10px;
+    max-width: 58px;
+  }
+}
+
+/* Tablets / pantallas grandes */
+@media (min-width: 768px) {
+  .app-tabbar {
+    height: calc(64px + env(safe-area-inset-bottom));
+  }
+
+  .app-tab ion-icon {
+    font-size: 24px;
+  }
+
+  .app-tab ion-label {
+    font-size: 12px;
+    max-width: 120px;
+  }
+}

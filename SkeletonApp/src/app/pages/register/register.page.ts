@@ -1,31 +1,14 @@
-// src/app/pages/register/register.page.ts
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
-import {
-  IonContent,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonCard,
-  IonCardHeader,
-  IonCardTitle,
-  IonCardSubtitle,
-  IonCardContent,
-  IonItem,
-  IonLabel,
-  IonInput,
-  IonButton,
-  IonDatetime,
-  ToastController,
+  IonContent, IonHeader, IonToolbar, IonTitle, IonCard, IonCardHeader,
+  IonCardTitle, IonCardSubtitle, IonCardContent, IonItem, IonLabel, IonInput,
+  IonButton, IonDatetime, ToastController, IonAvatar, IonIcon
 } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
+import { CameraService } from '../../services/camera.service';
 
 @Component({
   selector: 'app-register',
@@ -36,39 +19,30 @@ import { AuthService } from '../../services/auth.service';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    IonContent,
-    IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonCard,
-    IonCardHeader,
-    IonCardTitle,
-    IonCardSubtitle,
-    IonCardContent,
-    IonItem,
-    IonLabel,
-    IonInput,
-    IonButton,
-    IonDatetime,
+    IonContent, IonHeader, IonToolbar, IonTitle,
+    IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent,
+    IonItem, IonLabel, IonInput, IonButton, IonDatetime,
+    IonAvatar, IonIcon
   ],
 })
 export class RegisterPage {
   registerForm: FormGroup;
   maxFecha: string = new Date().toISOString();
 
+  // Preview (antes de guardar)
+  photoBase64: string | null = null;
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
+    private cameraService: CameraService,
     private toastCtrl: ToastController
   ) {
     this.registerForm = this.fb.group(
       {
         nombre: ['', [Validators.required, Validators.minLength(3)]],
-        usuario: [
-          '',
-          [Validators.required, Validators.minLength(3), Validators.maxLength(12)],
-        ],
+        usuario: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(12)]],
         email: ['', [Validators.required, Validators.email]],
         telefono: ['', [Validators.required, Validators.pattern('^[0-9]{9,12}$')]],
         fechaNacimiento: ['', Validators.required],
@@ -84,6 +58,27 @@ export class RegisterPage {
     const pass = form.get('password')?.value;
     const confirm = form.get('confirmPassword')?.value;
     return pass === confirm ? null : { noCoincide: true };
+  }
+
+  //  Toma foto y la deja lista en pantalla (preview)
+  async tomarFoto() {
+    try {
+      this.photoBase64 = await this.cameraService.takeProfilePhotoBase64();
+      const t = await this.toastCtrl.create({
+        message: 'Foto capturada. Se guardará al registrar.',
+        duration: 1500,
+        color: 'success',
+      });
+      await t.present();
+    } catch (e) {
+      console.error('CAMERA ERROR', e);
+      const t = await this.toastCtrl.create({
+        message: 'No se pudo abrir la cámara (¿estás en Android?).',
+        duration: 2000,
+        color: 'danger',
+      });
+      await t.present();
+    }
   }
 
   async registrar() {
@@ -108,6 +103,8 @@ export class RegisterPage {
         fechaNacimiento: v.fechaNacimiento,
         direccion: v.direccion,
         password: v.password,
+        //se persiste en SQLite como photo_base64
+        photoBase64: this.photoBase64,
       });
 
       const t = await this.toastCtrl.create({
@@ -127,7 +124,6 @@ export class RegisterPage {
       });
       await t.present();
     }
-    
   }
 
   goToLogin() {

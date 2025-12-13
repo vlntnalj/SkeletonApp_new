@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './departamentos.page.html',
   styleUrls: ['./departamentos.page.scss'],
   standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class DepartamentosPage {
