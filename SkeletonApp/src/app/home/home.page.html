@@ -26,6 +26,29 @@
       </lottie-player>
     </ion-card-content>
 
+
+    <ion-card class="actions-card">
+  <ion-card-header>
+    <ion-card-title>Ubicación (Servicio geolocalización)</ion-card-title>
+    <ion-card-subtitle>Se usa para el clima</ion-card-subtitle>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-button expand="block" color="mytheme" (click)="refrescarGPS()">
+      Actualizar ubicación
+    </ion-button>
+
+    <ion-text *ngIf="gpsLoading">Obteniendo…</ion-text>
+    <ion-text color="danger" *ngIf="gpsError">{{ gpsError }}</ion-text>
+
+    <div style="margin-top: 10px;">
+      <p><strong>Lat:</strong> {{ coords.lat }}</p>
+      <p><strong>Lon:</strong> {{ coords.lon }}</p>
+      <p *ngIf="coords.accuracy !== null"><strong>Precisión:</strong> {{ coords.accuracy | number:'1.0-0' }} m</p>
+    </div>
+  </ion-card-content>
+</ion-card>
+
     <!--  Card Clima Santiago que contiene la api -->
 <ion-card class="weather-card" color="mytheme">
   <ion-card-header>
@@ -133,5 +156,8 @@
       </ion-button>
     </ion-card-content>
   </ion-card>
+
+  
+
 
 </ion-content>
