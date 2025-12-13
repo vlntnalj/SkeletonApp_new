@@ -1,31 +1,35 @@
+<!-- personal.page.html -->
 <ion-header>
-  <ion-toolbar color="secondary">
+  <ion-toolbar color="mytheme">
     <ion-title>Gestión de Trabajadores</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding" color="mytheme-2">
 
   <!-- 🔹 Resumen de trabajadores -->
-  <ion-card>
+  <ion-card class="modern-card">
     <ion-card-header>
       <ion-card-title>Resumen General</ion-card-title>
-      <ion-card-subtitle>Estado actual del personal</ion-card-subtitle>
+      <ion-card-subtitle class="subtitle">Estado actual del personal</ion-card-subtitle>
     </ion-card-header>
+
     <ion-card-content>
-      <ion-grid>
+      <ion-grid class="stats-grid">
         <ion-row>
           <ion-col size="4" class="ion-text-center">
-            <h2 class="text-success">{{ trabajadoresActivos }}</h2>
-            <p>Activos</p>
+            <h2 class="stat-value">{{ trabajadoresActivos }}</h2>
+            <p class="stat-label">Activos</p>
           </ion-col>
+
           <ion-col size="4" class="ion-text-center">
-            <h2 class="text-warning">{{ trabajadoresLicencia }}</h2>
-            <p>En Licencia</p>
+            <h2 class="stat-value">{{ trabajadoresLicencia }}</h2>
+            <p class="stat-label">En Licencia</p>
           </ion-col>
+
           <ion-col size="4" class="ion-text-center">
-            <h2 class="text-medium">{{ trabajadoresInactivos }}</h2>
-            <p>Inactivos</p>
+            <h2 class="stat-value">{{ trabajadoresInactivos }}</h2>
+            <p class="stat-label">Inactivos</p>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -33,35 +37,48 @@
   </ion-card>
 
   <!-- 🔹 Cargos -->
-  <ion-card>
+  <ion-card class="modern-card">
     <ion-card-header>
       <ion-card-title>Cargos del Personal</ion-card-title>
     </ion-card-header>
-    <ion-card-content>
-      <ion-chip color="primary">Conserjería</ion-chip>
-      <ion-chip color="tertiary">Mantenimiento</ion-chip>
-      <ion-chip color="success">Limpieza</ion-chip>
-      <ion-chip color="warning">Administración</ion-chip>
+
+    <ion-card-content class="chips-wrap">
+      <ion-chip class="chip-role">Conserjería</ion-chip>
+      <ion-chip class="chip-role">Mantenimiento</ion-chip>
+      <ion-chip class="chip-role">Limpieza</ion-chip>
+      <ion-chip class="chip-role">Administración</ion-chip>
     </ion-card-content>
   </ion-card>
 
   <!-- 🔹 Lista de trabajadores -->
-  <ion-card>
+  <ion-card class="modern-card">
     <ion-card-header>
       <ion-card-title>Listado de Trabajadores</ion-card-title>
     </ion-card-header>
+
     <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let trabajador of trabajadores">
-          <ion-avatar slot="start">
+      <ion-list class="worker-list">
+        <ion-item *ngFor="let trabajador of trabajadores" class="worker-item" lines="none">
+          <ion-avatar slot="start" class="worker-avatar">
             <img [src]="trabajador.foto" alt="Foto del trabajador" />
           </ion-avatar>
-          <ion-label>
+
+          <ion-label class="worker-label">
             <h2>{{ trabajador.nombre }}</h2>
             <p>{{ trabajador.cargo }} • {{ trabajador.horario }}</p>
             <p>📞 {{ trabajador.telefono }}</p>
           </ion-label>
-          <ion-badge [color]="trabajador.estadoColor">{{ trabajador.estado }}</ion-badge>
+
+          <ion-badge
+            class="estado-badge"
+            [ngClass]="{
+              'badge-ok': trabajador.estado === 'Activo',
+              'badge-warn': trabajador.estado === 'Licencia' || trabajador.estado === 'En Licencia',
+              'badge-empty': trabajador.estado === 'Inactivo',
+              'badge-bad': (trabajador.estado !== 'Activo' && trabajador.estado !== 'Licencia' && trabajador.estado !== 'En Licencia' && trabajador.estado !== 'Inactivo')
+            }">
+            {{ trabajador.estado }}
+          </ion-badge>
         </ion-item>
       </ion-list>
     </ion-card-content>

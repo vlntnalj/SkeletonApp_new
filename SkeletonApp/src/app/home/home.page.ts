@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['home.page.scss'],
   standalone: true,
   imports: [IonicModule, RouterModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomePage {
 

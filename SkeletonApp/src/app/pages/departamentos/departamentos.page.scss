@@ -1,0 +1,143 @@
+/* residentes.page.scss */
+
+/* Fondo */
+ion-content {
+  --background: var(--ion-color-mytheme-2);
+}
+
+/* Header */
+ion-toolbar {
+  --background: var(--ion-color-mytheme);
+  --color: var(--ion-color-mytheme-contrast);
+}
+
+/* Searchbar coherente */
+.custom-search {
+  --background: var(--ion-color-mytheme-tint);
+  --color: var(--ion-color-mytheme-contrast);
+  --placeholder-color: var(--ion-color-mytheme-3);
+  --icon-color: var(--ion-color-mytheme-3);
+  --clear-button-color: var(--ion-color-mytheme-3);
+  --border-radius: 14px;
+  margin: 6px 0 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Grid resumen */
+.summary-grid {
+  margin-bottom: 14px;
+}
+
+/* KPI cards (mismo lenguaje visual) */
+.kpi-card {
+  margin: 0;
+  border-radius: 14px;
+  background: var(--ion-color-mytheme-tint);
+  color: var(--ion-color-mytheme-contrast);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+.kpi-card ion-card-content {
+  padding: 12px 8px;
+}
+
+.kpi-icon {
+  font-size: 26px;
+  margin-bottom: 6px;
+  color: var(--ion-color-mytheme-3);
+}
+
+.kpi-value {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  color: var(--ion-color-mytheme-contrast);
+}
+
+.kpi-label {
+  margin: 2px 0 0;
+  font-size: 11px;
+  opacity: 0.85;
+  color: var(--ion-color-mytheme-3);
+}
+
+/* Card de listado */
+.list-card {
+  border-radius: 16px;
+  background: var(--ion-color-mytheme-tint);
+  color: var(--ion-color-mytheme-contrast);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3);
+}
+
+.list-card ion-card-title {
+  color: var(--ion-color-mytheme-contrast);
+  font-weight: 700;
+}
+
+/* List / items */
+.resident-list {
+  background: transparent;
+  padding: 0;
+}
+
+.resident-item {
+  --background: rgba(255, 255, 255, 0.03);
+  --color: var(--ion-color-mytheme-contrast);
+  --min-height: 72px;
+  border-radius: 14px;
+  margin: 10px 0;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+}
+
+.avatar-icon {
+  font-size: 34px;
+  color: var(--ion-color-mytheme-3);
+  opacity: 0.95;
+}
+
+.resident-label h2 {
+  margin: 0 0 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ion-color-mytheme-contrast);
+}
+
+.resident-label p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--ion-color-mytheme-3);
+  opacity: 0.95;
+}
+
+/* Badge coherente (sin colores Ionic predefinidos) */
+.status-badge {
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* Estados */
+.badge-ok {
+  background: rgba(161, 161, 161, 0.20); /* mytheme-3 */
+  color: var(--ion-color-mytheme-contrast);
+  border: 1px solid rgba(161, 161, 161, 0.35);
+}
+
+.badge-warn {
+  background: rgba(161, 161, 161, 0.12);
+  color: var(--ion-color-mytheme-contrast);
+  border: 1px solid rgba(161, 161, 161, 0.28);
+}
+
+.badge-empty {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ion-color-mytheme-3);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.badge-bad {
+  background: rgba(20, 20, 20, 0.75); /* mytheme-shade */
+  color: var(--ion-color-mytheme-contrast);
+  border: 1px solid rgba(161, 161, 161, 0.22);
+}

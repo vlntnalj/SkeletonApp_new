@@ -1,0 +1,27 @@
+.login-wrapper {
+  min-height: 100%;
+  display: flex;
+  align-items: center;     /* vertical */
+  justify-content: center; /* horizontal */
+}
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  margin: 0;
+}
+
+.btn-shade {
+  --background: var(--ion-color-mytheme-shade);
+  --color: var(--ion-color-mytheme-contrast);
+}
+
+.btn-tint {
+  --background: var(--ion-color-mytheme-tint);
+  --color: var(--ion-color-mytheme-contrast);
+}
+
+.btn-tint-light {
+  --background: var(--ion-color-mytheme-tint-light);
+  --color: var(--ion-color-mytheme-contrast);
+}

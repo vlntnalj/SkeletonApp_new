@@ -1,0 +1,100 @@
+/* home.page.scss (o el scss de esta pantalla) */
+
+/* Fondo general del content (ya usas color="mytheme-2") */
+ion-content {
+  --background: var(--ion-color-mytheme-2);
+}
+
+/* Header */
+ion-toolbar {
+  --background: var(--ion-color-mytheme);
+  --color: var(--ion-color-mytheme-contrast);
+}
+
+/* Botón logout en header (coherente con tema) */
+.logout-btn {
+  --color: var(--ion-color-mytheme-contrast);
+  opacity: 0.9;
+}
+.logout-btn:hover {
+  opacity: 1;
+}
+
+/* Título “Administración” */
+.section-title {
+  display: block;
+  margin: 10px 0 14px;
+  color: var(--ion-color-mytheme-3);
+}
+
+/* Cards KPI (las 4 de arriba) */
+.kpi-card {
+  margin: 0;
+  border-radius: 14px;
+  background: var(--ion-color-mytheme-tint);
+  color: var(--ion-color-mytheme-contrast);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+}
+.kpi-card ion-card-content {
+  padding: 14px 10px;
+}
+
+.kpi-icon {
+  font-size: 28px;
+  margin-bottom: 6px;
+  color: var(--ion-color-mytheme-3);
+}
+
+.kpi-value {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: var(--ion-color-mytheme-contrast);
+}
+
+.kpi-label {
+  margin: 2px 0 0;
+  font-size: 12px;
+  opacity: 0.85;
+  color: var(--ion-color-mytheme-3);
+}
+
+/* Acciones rápidas */
+.actions-card {
+  margin-top: 14px;
+  border-radius: 16px;
+  background: var(--ion-color-mytheme-tint);
+  color: var(--ion-color-mytheme-contrast);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3);
+}
+
+.actions-card ion-card-title {
+  color: var(--ion-color-mytheme-contrast);
+  font-weight: 700;
+}
+
+/* Botones coherentes con tu paleta */
+.btn-primary {
+  --background: var(--ion-color-mytheme-3);
+  --color: var(--ion-color-mytheme);
+  --border-radius: 12px;
+  --box-shadow: 0 10px 18px rgba(0, 0, 0, 0.22);
+  margin-top: 10px;
+}
+
+.btn-secondary {
+  --background: var(--ion-color-mytheme-tint-light); /* custom */
+  --color: var(--ion-color-mytheme-contrast);
+  --border-radius: 12px;
+  --box-shadow: 0 10px 18px rgba(0, 0, 0, 0.22);
+  margin-top: 10px;
+}
+
+/* Espaciado grid más “app” */
+ion-grid {
+  --ion-grid-padding: 0;
+}
+ion-row + ion-row {
+  margin-top: 10px;
+}

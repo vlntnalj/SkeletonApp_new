@@ -1,0 +1,97 @@
+/* mantencion.page.scss */
+
+/* Fondo general */
+ion-content {
+  --background: var(--ion-color-mytheme-2);
+}
+
+/* Header */
+ion-toolbar {
+  --background: var(--ion-color-mytheme);
+  --color: var(--ion-color-mytheme-contrast);
+}
+
+/* Segment coherente */
+.custom-segment {
+  --background: var(--ion-color-mytheme-tint);
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  margin: 6px 0 14px;
+}
+
+.custom-segment ion-segment-button {
+  --color: var(--ion-color-mytheme-3);
+  --color-checked: var(--ion-color-mytheme);
+  --background-checked: var(--ion-color-mytheme-3);
+  --indicator-color: transparent;
+  border-radius: 12px;
+  min-height: 44px;
+}
+
+.custom-segment ion-segment-button ion-icon {
+  color: inherit;
+  opacity: 0.95;
+}
+
+.custom-segment ion-segment-button ion-label {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* Cards de mantención */
+.maintenance-card {
+  border-radius: 16px;
+  background: var(--ion-color-mytheme-tint);
+  color: var(--ion-color-mytheme-contrast);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.30);
+  margin: 12px 0;
+}
+
+.maintenance-card ion-card-title {
+  color: var(--ion-color-mytheme-contrast);
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.subtitle {
+  margin-top: 6px;
+  color: var(--ion-color-mytheme-3);
+  opacity: 0.95;
+}
+
+.desc {
+  margin: 0 0 10px;
+  color: var(--ion-color-mytheme-contrast);
+  opacity: 0.95;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+/* Items metadata */
+.meta-item {
+  --background: transparent;
+  --color: var(--ion-color-mytheme-contrast);
+  --inner-padding-end: 0;
+  --padding-start: 0;
+  margin: 6px 0;
+}
+
+.meta-item ion-label {
+  color: var(--ion-color-mytheme-contrast);
+  opacity: 0.92;
+  font-size: 13px;
+}
+
+.meta-icon {
+  color: var(--ion-color-mytheme-3);
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+/* FAB coherente */
+.fab-btn {
+  --background: var(--ion-color-mytheme-3);
+  --color: var(--ion-color-mytheme);
+  --box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+}

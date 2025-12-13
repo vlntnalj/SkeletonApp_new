@@ -1,2 +1,54 @@
-// For information on how to create your own theme, please refer to:
-// https://ionicframework.com/docs/theming/
+:root {
+  /* ===== mytheme (base oscuro) ===== */
+  --ion-color-mytheme: #1a1a1a;
+  --ion-color-mytheme-rgb: 26, 26, 26;
+  --ion-color-mytheme-contrast: #f0f0f0;
+  --ion-color-mytheme-contrast-rgb: 240, 240, 240;
+  --ion-color-mytheme-shade: #141414;
+  --ion-color-mytheme-tint: #2a2a2a;
+
+  /* ===== mytheme-2 (superficie) ===== */
+  --ion-color-mytheme-2: #2b2b2b;
+  --ion-color-mytheme-2-rgb: 43, 43, 43;
+  --ion-color-mytheme-2-contrast: #f0f0f0;
+  --ion-color-mytheme-2-contrast-rgb: 240, 240, 240;
+  --ion-color-mytheme-2-shade: #242424;
+  --ion-color-mytheme-2-tint: #3a3a3a;
+
+  /* ===== mytheme-3 (light / neutral) ===== */
+  --ion-color-mytheme-3: #a1a1a1;
+  --ion-color-mytheme-3-rgb: 161, 161, 161;
+  --ion-color-mytheme-3-contrast: #1a1a1a;
+  --ion-color-mytheme-3-contrast-rgb: 26, 26, 26;
+  --ion-color-mytheme-3-shade: #8e8e8e;
+  --ion-color-mytheme-3-tint: #b5b5b5;
+}
+
+/* ===== Ionic colors ===== */
+
+.ion-color-mytheme {
+  --ion-color-base: var(--ion-color-mytheme);
+  --ion-color-base-rgb: var(--ion-color-mytheme-rgb);
+  --ion-color-contrast: var(--ion-color-mytheme-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-mytheme-contrast-rgb);
+  --ion-color-shade: var(--ion-color-mytheme-shade);
+  --ion-color-tint: var(--ion-color-mytheme-tint);
+}
+
+.ion-color-mytheme-2 {
+  --ion-color-base: var(--ion-color-mytheme-2);
+  --ion-color-base-rgb: var(--ion-color-mytheme-2-rgb);
+  --ion-color-contrast: var(--ion-color-mytheme-2-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-mytheme-2-contrast-rgb);
+  --ion-color-shade: var(--ion-color-mytheme-2-shade);
+  --ion-color-tint: var(--ion-color-mytheme-2-tint);
+}
+
+.ion-color-mytheme-3 {
+  --ion-color-base: var(--ion-color-mytheme-3);
+  --ion-color-base-rgb: var(--ion-color-mytheme-3-rgb);
+  --ion-color-contrast: var(--ion-color-mytheme-3-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-mytheme-3-contrast-rgb);
+  --ion-color-shade: var(--ion-color-mytheme-3-shade);
+  --ion-color-tint: var(--ion-color-mytheme-3-tint);
+}
