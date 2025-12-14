@@ -88,10 +88,22 @@ ion-toolbar {
   font-size: 18px;
   margin-right: 8px;
 }
+.fixed-add-btn {
+  position: fixed;
+  right: 16px;
+  bottom: calc(72px + env(safe-area-inset-bottom)); /* sobre la tabbar */
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
 
-/* FAB coherente */
-.fab-btn {
-  --background: var(--ion-color-mytheme-3);
-  --color: var(--ion-color-mytheme);
-  --box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+  background: var(--ion-color-mytheme-3);
+  color: #ffffff;
+
+  border: none;
+  font-size: 32px;
+  line-height: 56px;
+  text-align: center;
+
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+  z-index: 10000;
 }

@@ -56,12 +56,10 @@
     </ion-card-content>
   </ion-card>
 
-  <!-- 🧰 Botón flotante para nuevo reporte -->
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-  <ion-fab-button class="fab-btn" (click)="openNewReporteModal()">
-    <ion-icon name="add-outline"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
+   <!-- FAB fuera del padding -->
+    <button class="fixed-add-btn" (click)="openNewReporteModal()">
+    +
+  </button>
 
 
 

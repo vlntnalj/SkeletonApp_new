@@ -13,8 +13,8 @@
   background: rgba(26, 26, 26, 0.92);
   backdrop-filter: saturate(140%) blur(10px);
 
-  --color: rgba(240, 240, 240, 0.75);
-  --color-selected: var(--ion-color-mytheme-contrast);
+  --color: #ffffff;            /* tabs normales */
+  --color-selected: #ffffff; 
 
   /* evita que se “agrande” raro */
   display: flex;
