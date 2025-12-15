@@ -26,6 +26,7 @@
 
       <ion-item class="input-item">
         <ion-input 
+          data-cy="login-username"
           label="Usuario" 
           labelPlacement="floating" 
           [(ngModel)]="username">
@@ -37,11 +38,13 @@
           type="password" 
           label="Contraseña" 
           labelPlacement="floating" 
-          [(ngModel)]="password">
+          [(ngModel)]="password"
+          data-cy="login-password">
+          
         </ion-input>
       </ion-item>
 
-      <ion-button expand="block" color="mytheme" class="ion-margin-top" (click)="ingresar()">
+      <ion-button data-cy="login-submit" expand="block" color="mytheme" class="ion-margin-top" (click)="ingresar()">
         Ingresar
       </ion-button>
 

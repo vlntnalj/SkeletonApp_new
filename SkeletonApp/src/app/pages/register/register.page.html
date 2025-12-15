@@ -40,7 +40,7 @@
 
         <ion-item class="input-item" lines="none">
           <ion-label position="floating">Usuario</ion-label>
-          <ion-input formControlName="usuario"></ion-input>
+          <ion-input data-cy="reg-user" formControlName="usuario"></ion-input>
         </ion-item>
 
         <ion-item class="input-item" lines="none">
@@ -88,9 +88,9 @@
   <p class="hint" *ngIf="photoBase64">Vista previa lista. Se guardará al registrar.</p>
 </div>
 
-        <ion-item class="input-item" lines="none">
+        <ion-item  class="input-item" lines="none">
           <ion-label position="floating">Contraseña</ion-label>
-          <ion-input type="password" formControlName="password"></ion-input>
+          <ion-input data-cy="reg-pass" type="password" formControlName="password"></ion-input>
         </ion-item>
 
         <ion-item class="input-item" lines="none">
